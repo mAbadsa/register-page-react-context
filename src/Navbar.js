@@ -8,35 +8,67 @@ import SearchIcon from "@material-ui/icons/Search";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/NavBarStyles";
-import { ThemeContext } from './contexts/ThemeContext';
+import { ThemeContext } from "./contexts/ThemeContext";
+import { withLanguageContext } from "./contexts/LanguageContext";
+
+const content = {
+  arabic: {
+    search: "بحث",
+    title: "عنوان التطبيق",
+    flag: "🇵🇸"
+  },
+  english: {
+    search: "Search",
+    title: "App title",
+    flag: "🇬🇧"
+  },
+  spanish: {
+    search: "Buscar",
+    title: "Título de la aplicación",
+    flag: "🇪🇸"
+  },
+}
 
 class Navbar extends Component {
   static contextType = ThemeContext;
+  constructor(props) {
+    super(props);
+  }
   render() {
     const { isDarkMode, toggleTheme } = this.context;
     const { classes } = this.props;
+    const { language } = this.props.languageContext;
+    const { search, title, flag } = content[language];
+    const arabicStyle = {
+      direction: language === "arabic" ? "rtl" : "ltr",
+      textAlign: language === "arabic" ? "right" : "left",
+      right: 0,
+    };
     return (
-      <div className={classes.root}>
+      <div className={classes.root} style={arabicStyle}>
         <AppBar position="static" color={isDarkMode ? "default" : "primary"}>
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit">
-              <span role="img" aria-label="flage">🇫🇷</span>
+              <span role="img" aria-label="flage">
+                {flag}
+              </span>
             </IconButton>
             <Typography className={classes.title} variant="h6" color="inherit">
-              App Title
+              {title} {language === "arabic" ? "العربية" : language}
             </Typography>
-            <Switch onChange={toggleTheme}/>
+            <Switch onChange={toggleTheme} />
             <div className={classes.grow} />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search..."
+                placeholder={search + "..."}
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
+                style={{paddingRight: language === "arabic" && 23 + 'px'}}
               />
             </div>
           </Toolbar>
@@ -45,4 +77,4 @@ class Navbar extends Component {
     );
   }
 }
-export default withStyles(styles)(Navbar);
+export default withLanguageContext(withStyles(styles)(Navbar));

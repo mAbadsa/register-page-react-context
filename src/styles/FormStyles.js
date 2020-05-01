@@ -25,8 +25,17 @@ const styles = (theme) => ({
       width: "100%",
       marginTop: theme.spacing(3)
   },
+  select: {
+    minWidth: "100px",
+  },
   submit: {
     marginTop: theme.spacing(3)
+  },
+  labelArbic: {
+      left: "70%",
+      "&.MuiInputLabel-shrink": {
+        transformOrigin: "top right"
+      }
   }
 });
 

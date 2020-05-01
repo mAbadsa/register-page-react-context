@@ -1,4 +1,5 @@
 import { fade } from "@material-ui/core/styles/colorManipulator";
+
 const styles = theme => ({
   root: {
     width: "100%",
@@ -37,7 +38,8 @@ const styles = theme => ({
     position: "absolute",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    width: "30px"
   },
   inputRoot: {
     color: "inherit",
@@ -47,7 +49,7 @@ const styles = theme => ({
     paddingTop: theme.spacing(),
     paddingRight: theme.spacing(),
     paddingBottom: theme.spacing(),
-    paddingLeft: theme.spacing(10),
+    paddingLeft: theme.spacing(3.3),
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {

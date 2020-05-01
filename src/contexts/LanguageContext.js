@@ -6,7 +6,7 @@ export class LanguageProvider extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: "spanish"
+            language: "arabic"
         }
         this.changeLanguage = this.changeLanguage.bind(this);
     }
@@ -19,3 +19,9 @@ export class LanguageProvider extends Component {
     );
   }
 }
+
+export const withLanguageContext = Component => props => (
+    <LanguageContext.Consumer>
+        {value => <Component languageContext={value} {...props}/>}
+    </LanguageContext.Consumer>
+)

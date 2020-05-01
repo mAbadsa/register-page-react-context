@@ -57,7 +57,9 @@ class Form extends Component {
             labelId="language"
             id="language"
             value={language}
+            className={classes.select}
             onChange={changeLanguage}
+            fullWidth
           >
             <MenuItem value="arabic">العربية</MenuItem>
             <MenuItem value="english">English</MenuItem>
@@ -67,6 +69,7 @@ class Form extends Component {
             <FormControl margin="normal" required fullWidth>
               <InputLabel
                 htmlFor="email"
+                className={language === "arabic" && classes.labelArbic}
                 style={{ right: language === "arabic" && 0 }}
               >
                 {email}
@@ -75,6 +78,7 @@ class Form extends Component {
             </FormControl>
             <FormControl margin="normal" required fullWidth>
               <InputLabel
+                className={language === "arabic" && classes.labelArbic}
                 htmlFor="password"
                 style={{ right: language === "arabic" && 0 }}
               >
