@@ -7,7 +7,7 @@ export function LanguageProvider(props) {
   const changeLanguage = (evt) => setLanguage(evt.target.value);
   return (
     <LanguageContext.Provider
-      value={{language, changeLanguage: changeLanguage }}
+      value={{ language, changeLanguage: changeLanguage }}
     >
       {props.children}
     </LanguageContext.Provider>
