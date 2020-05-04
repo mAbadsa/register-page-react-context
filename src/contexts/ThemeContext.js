@@ -1,12 +1,13 @@
-import React, { createContext, useState} from "react";
+import React, { createContext } from "react";
+import useToggleState from '../hooks/useToggleState';
 
 export const ThemeContext = createContext();
 
 export function ThemeProvider(props) {
-  const [isDarkMode, setDarkMode] = useState(true);
-  const toggleTheme = () => setDarkMode(!isDarkMode);
+  const [isDarkMode, toggleTheme] = useToggleState(true);
+  
     return (
-      <ThemeContext.Provider value={{ isDarkMode, toggleTheme: toggleTheme }}>
+      <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
         {props.children}
       </ThemeContext.Provider>
     );
