@@ -31,9 +31,6 @@ const content = {
 
 class Navbar extends Component {
   static contextType = ThemeContext;
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { isDarkMode, toggleTheme } = this.context;
     const { classes } = this.props;

@@ -33,13 +33,12 @@ const styles = theme => ({
     }
   },
   searchIcon: {
-    width: theme.spacing(9),
+    width: theme.spacing(4),
     height: "100%",
     position: "absolute",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    width: "30px"
+    justifyContent: "center"
   },
   inputRoot: {
     color: "inherit",
