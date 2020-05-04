@@ -31,7 +31,7 @@ const content = {
 
 function Navbar(props) {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-  const { language } = useContext(languageContext);
+  const { language } = useContext(LanguageContext);
   const { classes } = props;
   const { search, title, flag } = content[language];
   const arabicStyle = {
